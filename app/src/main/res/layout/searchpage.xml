@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- searchpage.xml. NOTE: TODO [01] THIS XML FILE NEEDS MODIFYING BY THE 
+	STUDENTS. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_height="wrap_content"
+	android:layout_width="fill_parent"
+	android:layout_marginTop="@dimen/activity_vertical_margin"
+	android:layout_marginBottom="@dimen/activity_vertical_margin"
+	android:layout_marginLeft="@dimen/activity_horizontal_margin"
+	android:layout_marginRight="@dimen/activity_horizontal_margin">
+	<!-- INSERT CODE HERE -->
+	<LinearLayout
+		android:id="@+id/propertyTypeLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:minHeight="@dimen/search_page_row_height"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/propertyTypeView"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:minWidth="@dimen/search_page_title_strings_min_width"
+			android:text="@string/property_type" />
+
+		<Spinner
+			android:id="@+id/propertyTypeSpinner"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			tools:ignore="SpeakableTextPresentCheck" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/stateLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:minHeight="@dimen/search_page_row_height"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/stateView"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:minWidth="@dimen/search_page_title_strings_min_width"
+			android:text="@string/state" />
+
+		<Spinner
+			android:id="@+id/stateSpinner"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			tools:ignore="SpeakableTextPresentCheck" />
+
+	</LinearLayout>
+
+	<View
+		android:id="@+id/divider1"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_weight="1"
+		android:background="?android:attr/listDivider" />
+
+	<LinearLayout
+		android:id="@+id/buyRentLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="horizontal">
+
+		<RadioGroup
+			android:id="@+id/buyRentRadioGroup"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginStart="@dimen/activity_horizontal_margin"
+			android:layout_marginLeft="@dimen/activity_horizontal_margin">
+
+			<RadioButton
+				android:id="@+id/buyRadioButton"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:minHeight="@dimen/search_page_row_height"
+				android:text="@string/buy" />
+
+			<RadioButton
+				android:id="@+id/rentRadioButton"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:minHeight="@dimen/search_page_row_height"
+				android:text="@string/rent" />
+		</RadioGroup>
+
+	</LinearLayout>
+
+	<View
+		android:id="@+id/divider2"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_weight="1"
+		android:background="?android:attr/listDivider" />
+
+	<LinearLayout
+		android:id="@+id/suburbLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:minHeight="@dimen/search_page_row_height"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/suburbView"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:minWidth="@dimen/search_page_title_strings_min_width"
+			android:text="@string/suburb" />
+
+		<EditText
+			android:id="@+id/suburbInputField"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:ems="10"
+			android:hint="@string/suburb_hint"
+			android:inputType="textPersonName" />
+	</LinearLayout>
+
+	<View
+		android:id="@+id/divider3"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="?android:attr/listDivider" />
+
+	<LinearLayout
+		android:id="@+id/priceLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:minHeight="@dimen/search_page_row_height"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/priceView"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:minWidth="@dimen/search_page_title_strings_min_width"
+			android:text="@string/price" />
+
+		<EditText
+			android:id="@+id/fromPriceInput"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:ems="10"
+			android:hint="@string/from_hint"
+			android:inputType="numberDecimal" />
+
+		<EditText
+			android:id="@+id/toPriceInput"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:ems="10"
+			android:hint="@string/to_hint"
+			android:inputType="numberDecimal" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/bedroomLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:minHeight="@dimen/search_page_row_height"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/bedroomView"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:minWidth="@dimen/search_page_title_strings_min_width"
+			android:text="@string/bedrooms" />
+
+		<Spinner
+			android:id="@+id/bedroomSpinner"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			tools:ignore="SpeakableTextPresentCheck" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/bathroomLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:minHeight="@dimen/search_page_row_height"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/bathroomView"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:minWidth="@dimen/search_page_title_strings_min_width"
+			android:text="@string/bathrooms" />
+
+		<Spinner
+			android:id="@+id/bathroomSpinner"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			tools:ignore="SpeakableTextPresentCheck" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/carSpaceLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:minHeight="@dimen/search_page_row_height"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/carSpaceView"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:minWidth="@dimen/search_page_title_strings_min_width"
+			android:text="@string/car_spaces" />
+
+		<Spinner
+			android:id="@+id/carSpaceSpinner"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			tools:ignore="SpeakableTextPresentCheck" />
+	</LinearLayout>
+
+	<View
+		android:id="@+id/divider"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="?android:attr/listDivider" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="horizontal">
+
+		<Space
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1" />
+
+		<Button
+			android:id="@+id/searchButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/search" />
+	</LinearLayout>
+
+</LinearLayout>
