@@ -49,7 +49,7 @@ public class PropertyDetails extends Activity {
 		/* Holen Sie sich die Property-ID, die wir sehen sollen, um zu prüfen,
 		 * ob der Benutzer "rent" oder "buy" ausgewählt hat. */
 		//*************************************************************
-		//* TODO [08]: Fügen Sie Java-Code ein, der benötigt wird, um die
+		//* DONE [08]: Fügen Sie Java-Code ein, der benötigt wird, um die
 		//* Extras des Intents (in diesem Fall 'EXTRA_PROPERTY_ID' und
 		//* 'EXTRA_TO_RENT') abzurufen, und speichern Sie diese in der
 		//* lokalen String-Variablen propertyID und der lokalen booleschen
@@ -58,6 +58,8 @@ public class PropertyDetails extends Activity {
 		//*************************************************************
 		// INSERT CODE HERE.
 		//*************************************************************
+		toRent = getIntent().getExtras().getBoolean(PropertyApp.EXTRA_TO_RENT);
+		propertyID = getIntent().getExtras().getString(PropertyApp.EXTRA_PROPERTY_ID);
 
 		//Open the database.
 		mDb = new PropertyDB(this);

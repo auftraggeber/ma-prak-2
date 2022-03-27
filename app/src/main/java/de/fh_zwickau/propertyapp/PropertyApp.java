@@ -80,7 +80,7 @@ public class PropertyApp extends AppCompatActivity implements OnItemSelectedList
 	public static final String EXTRA_TO_RENT="de.fh_zwickau.propertyapp.to_rent";
 
 	//*************************************************************************
-	//* TODO [03]: Fügen Sie Java-Code-Variablen ein, die zum Füllen der Spinner auf der
+	//* DONE [03]: Fügen Sie Java-Code-Variablen ein, die zum Füllen der Spinner auf der
 	//* Suchseite Spinner erforderlich sind.
 	//* Vorgeschlagenes Format: String [] spinnerVar1 = {"", "", ""} ;, wobei
 	//* 'spinnerVar1' der Name des String-Arrays ist (z. B. propertyTypeItems,
@@ -115,7 +115,7 @@ public class PropertyApp extends AppCompatActivity implements OnItemSelectedList
 		Log.d(TAG, "onCreate");
 
 		//*********************************************************************
-		//* TODO [02]: Setzen Sie den Activity-Inhalt aus einer Layout-Ressource, d.h.
+		//* DONE [02]: Setzen Sie den Activity-Inhalt aus einer Layout-Ressource, d.h.
 		//* verknüpfen Sie die Aktivität mit der XML-GUI. Schauen Sie sich die
 		//* onCreate-Methode in PropertyDetails.java an, um ein Beispiel dafür zu sehen.
 		//*
@@ -136,7 +136,7 @@ public class PropertyApp extends AppCompatActivity implements OnItemSelectedList
 	 */
 	public void initialiseSearchPageGUI() {
 		//*********************************************************************
-		//* TODO [04]: Fügen Sie Java-Code ein, der zum Initialisieren der GUI-Widgets
+		//* DONE [04]: Fügen Sie Java-Code ein, der zum Initialisieren der GUI-Widgets
 		//* der Suchseite der Anwendung erforderlich ist.
 		//* Vorschlag: Hier werden die Spinner (z.B. PropertyType, state, bathrooms und
 		//* carSpaces), RadioGroup (z.B. buyOrRent), RadioButtons (z.B. buy, rent),
@@ -159,7 +159,7 @@ public class PropertyApp extends AppCompatActivity implements OnItemSelectedList
 		//*
 		//*********************************************************************
 		// 04A: Erstellen Sie die Spinner und verknüpfen Sie diese über den ArrayAdapter
-		// mit den String-Arrays (d.h. den Daten), die Sie oben in TODO [03] definiert haben.
+		// mit den String-Arrays (d.h. den Daten), die Sie oben in DONE [03] definiert haben.
 		//
 		// 04A: INSERT CODE HERE.
 		//
@@ -200,9 +200,13 @@ public class PropertyApp extends AppCompatActivity implements OnItemSelectedList
 		Button searchButton = findViewById(R.id.searchButton);
 
 		searchButton.setOnClickListener(v -> {
+			RadioGroup buyRentRadioGroup = findViewById(R.id.buyRentRadioGroup);
 
-			populatePropertyCatalog(true);
+			boolean toRent = (buyRentRadioGroup.getCheckedRadioButtonId() != R.id.buyRadioButton); // Invertiert, falls kein Feld ausgewählt wurde
+
+			populatePropertyCatalog(toRent);
 			Intent pushTo = new Intent(this, PropertyList.class);
+			pushTo.putExtra(EXTRA_TO_RENT, toRent);
 
 			startActivity(pushTo);
 		});

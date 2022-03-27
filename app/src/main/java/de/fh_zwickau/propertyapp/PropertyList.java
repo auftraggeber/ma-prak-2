@@ -59,14 +59,13 @@ public class PropertyList extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		final String toRentStr;
-		boolean toRent = false; //Contains whether the user is looking to 'buy'
 		//or 'rent' a property. This information is obtained from the Extras bundle.
 
 		super.onCreate(savedInstanceState);
 		Log.d(TAG, "onCreate");
 
 		//*********************************************************************
-		//* TODO [05]: Legen Sie den Activity-Inhalt aus einer Layout-Ressource
+		//* DONE [05]: Legen Sie den Activity-Inhalt aus einer Layout-Ressource
 		//* fest, d.h. verknüpfen Sie die Activity mit der XML-GUI. Ein Beispiel
 		//* dafür, wie das gemacht wird, finden Sie in der onCreate-Methode in
 		//* PropertyDetails.java.
@@ -78,13 +77,14 @@ public class PropertyList extends Activity {
 
 		/* Extras aus dem Intent holen */
 		//*********************************************************************
-		//* TODO [06]: Fügen Sie Java-Code ein, der benötigt wird, um die Extras
+		//* DONE [06]: Fügen Sie Java-Code ein, der benötigt wird, um die Extras
 		//* des Intents (in diesem Fall 'EXTRA_TO_RENT') abzurufen und speichern
 		//* Sie diese in der lokalen booleschen Variablen 'toRent'.
 		//*
 		//*********************************************************************
 		// INSERT CODE HERE.
 		//*********************************************************************
+		final boolean toRent = getIntent().getExtras().getBoolean(PropertyApp.EXTRA_TO_RENT);
 
 		mDb = new PropertyDB(this);
 		mDb.open(toRent, false);
@@ -106,7 +106,7 @@ public class PropertyList extends Activity {
 			public void onItemClick(AdapterView<?> a, View v, int position, long id) {
 				Log.d(TAG, "PropertyList.onItemClick()");
 				//*************************************************************
-				//* TODO [07]: Einfügen von Java-Code, der zum Auslösen des
+				//* DONE [07]: Einfügen von Java-Code, der zum Auslösen des
 				//* PropertyDetails-Intent erforderlich ist, und Verwenden der
 				//* putExtra-Methode zum Hinzufügen zusätzlicher Informationen
 				//* zum Intent, nämlich der ID der Immobilie, über die der
@@ -116,6 +116,13 @@ public class PropertyList extends Activity {
 				//*************************************************************
 				// INSERT CODE HERE.
 				//*************************************************************
+
+				Intent pushTo = new Intent(getApplicationContext(), PropertyDetails.class);
+				pushTo.putExtra(PropertyApp.EXTRA_TO_RENT, toRent);
+				pushTo.putExtra(PropertyApp.EXTRA_PROPERTY_ID, ((Property) v.getTag()).getPropertyID());
+				// TODO: Frage: Über Tags gelöst. Geht das auch besser?
+
+				startActivity(pushTo);
 			}
 		});
 	} // onCreate
@@ -198,6 +205,9 @@ public class PropertyList extends Activity {
 			LayoutInflater inflater=getLayoutInflater();
 			row = inflater.inflate(R.layout.propertylistrow, null);
 			Property p = mPropertyList.get(position);
+
+			// TODO: Frage: auch besser möglich?
+			row.setTag(p);
 
 			ImageView photo = (ImageView) row.findViewById(R.id.propertyImage);
 			photo.setImageResource(R.drawable.house);
