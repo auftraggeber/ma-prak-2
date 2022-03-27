@@ -13,6 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
+import java.sql.Array;
+
 /******************************************************************************
  * Mobile Anwendungen, Westsächsische Hochschule Zwickau.
  *
@@ -92,6 +94,8 @@ public class PropertyApp extends AppCompatActivity implements OnItemSelectedList
 	//*************************************************************************
 
 	private static final String[] spinnerPropertyType = {"House", "Apartment", "Land"};
+	private static final String[] spinnerStateType = {"StateA", "StateB", "StateC", "StateD", "StateE"};
+	private static String[] spinnerCount1Type = new String[4], spinnerCount0Type = new String[4];
 
 	PropertyDB mDb = null;
 
@@ -102,6 +106,12 @@ public class PropertyApp extends AppCompatActivity implements OnItemSelectedList
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		for (int i = 0; i < spinnerCount0Type.length; i++) {
+			spinnerCount1Type[i] = String.valueOf(i + 1);
+			spinnerCount0Type[i] = String.valueOf(i);
+		}
+
 		Log.d(TAG, "onCreate");
 
 		//*********************************************************************
@@ -153,6 +163,26 @@ public class PropertyApp extends AppCompatActivity implements OnItemSelectedList
 		//
 		// 04A: INSERT CODE HERE.
 		//
+
+		Spinner propertySpinner = findViewById(R.id.propertyTypeSpinner);
+		Spinner stateSpinner = findViewById(R.id.stateSpinner);
+		Spinner bedroomsSpinner = findViewById(R.id.bedroomSpinner);
+		Spinner bathroomSpinner = findViewById(R.id.bathroomSpinner);
+		Spinner carSpacesSpinner = findViewById(R.id.carSpaceSpinner);
+
+		ArrayAdapter<String> propertyTypeSpinnerAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, spinnerPropertyType);
+		ArrayAdapter<String> stateSpinnerAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, spinnerStateType);
+		ArrayAdapter<String> bedroomSpinnerAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, spinnerCount1Type);
+		ArrayAdapter<String> bathroomSpinnerAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, spinnerCount1Type);
+		ArrayAdapter<String> carSpacesSpinnerAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, spinnerCount0Type);
+
+		propertySpinner.setAdapter(propertyTypeSpinnerAdapter);
+		stateSpinner.setAdapter(stateSpinnerAdapter);
+		bedroomsSpinner.setAdapter(bedroomSpinnerAdapter);
+		bathroomSpinner.setAdapter(bathroomSpinnerAdapter);
+		carSpacesSpinner.setAdapter(carSpacesSpinnerAdapter);
+
+
 		// 04B: Erstellen Sie die Suchschaltfläche und den zugehörigen OnClick-Listener.
 		// Überprüfen Sie innerhalb der onClick-Methode, welcher Radio Button ausgewählt
 		// wurde, und rufen Sie dann die populatePropertyCatalog(boolean toRent)-Methode
@@ -166,6 +196,16 @@ public class PropertyApp extends AppCompatActivity implements OnItemSelectedList
 		// 04B: INSERT CODE HERE.
 		//
 		//*********************************************************************
+
+		Button searchButton = findViewById(R.id.searchButton);
+
+		searchButton.setOnClickListener(v -> {
+
+			populatePropertyCatalog(true);
+			Intent pushTo = new Intent(this, PropertyList.class);
+
+			startActivity(pushTo);
+		});
 
 
 	} //initialiseSearchPageGUI

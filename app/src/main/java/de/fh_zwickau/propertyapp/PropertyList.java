@@ -74,6 +74,7 @@ public class PropertyList extends Activity {
 		//*********************************************************************
 		// INSERT CODE HERE.
 		//*********************************************************************
+		setContentView(R.layout.propertylisting);
 
 		/* Extras aus dem Intent holen */
 		//*********************************************************************
