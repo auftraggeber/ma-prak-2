@@ -119,8 +119,7 @@ public class PropertyList extends Activity {
 
 				Intent pushTo = new Intent(getApplicationContext(), PropertyDetails.class);
 				pushTo.putExtra(PropertyApp.EXTRA_TO_RENT, toRent);
-				pushTo.putExtra(PropertyApp.EXTRA_PROPERTY_ID, ((Property) v.getTag()).getPropertyID());
-				// TODO: Frage: Über Tags gelöst. Geht das auch besser?
+				pushTo.putExtra(PropertyApp.EXTRA_PROPERTY_ID,  mPropertyList.get(position).getPropertyID());
 
 				startActivity(pushTo);
 			}
@@ -206,7 +205,6 @@ public class PropertyList extends Activity {
 			row = inflater.inflate(R.layout.propertylistrow, null);
 			Property p = mPropertyList.get(position);
 
-			// TODO: Frage: auch besser möglich?
 			row.setTag(p);
 
 			ImageView photo = (ImageView) row.findViewById(R.id.propertyImage);

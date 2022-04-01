@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- searchpage.xml. NOTE: TODO [01] THIS XML FILE NEEDS MODIFYING BY THE 
+<!-- searchpage.xml. NOTE: DONE [01] THIS XML FILE NEEDS MODIFYING BY THE
 	STUDENTS. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
@@ -20,10 +20,8 @@
 
 		<TextView
 			android:id="@+id/propertyTypeView"
-			android:layout_width="wrap_content"
+			android:layout_width="@dimen/search_page_title_views_layout_width"
 			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:minWidth="@dimen/search_page_title_strings_min_width"
 			android:text="@string/property_type" />
 
 		<Spinner
@@ -44,10 +42,8 @@
 
 		<TextView
 			android:id="@+id/stateView"
-			android:layout_width="wrap_content"
+			android:layout_width="@dimen/search_page_title_views_layout_width"
 			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:minWidth="@dimen/search_page_title_strings_min_width"
 			android:text="@string/state" />
 
 		<Spinner
@@ -112,10 +108,8 @@
 
 		<TextView
 			android:id="@+id/suburbView"
-			android:layout_width="wrap_content"
+			android:layout_width="@dimen/search_page_title_views_layout_width"
 			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:minWidth="@dimen/search_page_title_strings_min_width"
 			android:text="@string/suburb" />
 
 		<EditText
@@ -143,10 +137,8 @@
 
 		<TextView
 			android:id="@+id/priceView"
-			android:layout_width="wrap_content"
+			android:layout_width="@dimen/search_page_title_views_layout_width"
 			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:minWidth="@dimen/search_page_title_strings_min_width"
 			android:text="@string/price" />
 
 		<EditText
@@ -177,10 +169,8 @@
 
 		<TextView
 			android:id="@+id/bedroomView"
-			android:layout_width="wrap_content"
+			android:layout_width="@dimen/search_page_title_views_layout_width"
 			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:minWidth="@dimen/search_page_title_strings_min_width"
 			android:text="@string/bedrooms" />
 
 		<Spinner
@@ -200,10 +190,8 @@
 
 		<TextView
 			android:id="@+id/bathroomView"
-			android:layout_width="wrap_content"
+			android:layout_width="@dimen/search_page_title_views_layout_width"
 			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:minWidth="@dimen/search_page_title_strings_min_width"
 			android:text="@string/bathrooms" />
 
 		<Spinner
@@ -225,10 +213,8 @@
 
 		<TextView
 			android:id="@+id/carSpaceView"
-			android:layout_width="wrap_content"
+			android:layout_width="@dimen/search_page_title_views_layout_width"
 			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:minWidth="@dimen/search_page_title_strings_min_width"
 			android:text="@string/car_spaces" />
 
 		<Spinner
